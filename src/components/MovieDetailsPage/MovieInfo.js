@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
@@ -6,11 +6,16 @@ import {
   MovieInformation,
   Wrapper,
   InfoWrapper,
+  NavLink,
 } from "./MovieDedetails.styled";
+
+
 function MovieInfo({ movie }) {
   const navigate = useNavigate();
   const userScore = Math.round((`${movie.vote_average}` * 100) / 10);
   const year = movie.release_date.substring(0, 4);
+
+  // const setActive = ({isActive }) => ({ color: isActive ? 'var (---color-active)' : 'white'}))
 
   return (
     <>

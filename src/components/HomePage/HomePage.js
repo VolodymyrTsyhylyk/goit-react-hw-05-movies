@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getTrendingMovies } from "../../services/moves-api";
+
+
 function HomePage() {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     getTrendingMovies()
       .then((data) => {
@@ -10,6 +13,8 @@ function HomePage() {
       })
       .catch((error) => console.warn(error));
   }, []);
+
+  
   return (
     <>
       <h2>Trending today</h2>

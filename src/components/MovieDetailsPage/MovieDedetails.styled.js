@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink as RouteLink } from 'react-router-dom';
 
 export const Button = styled.button`
   width: 100px;
@@ -39,4 +40,16 @@ export const Name = styled.p`
 `;
 export const Character = styled.p`
   color: black;
+  
+`;
+export const NavLink = styled(RouteLink)`
+  color: #999;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1;
+  &:hover,
+  &:focus,
+  &.active {
+    color: #0082ab;
+  }
 `;
