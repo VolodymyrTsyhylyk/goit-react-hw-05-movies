@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getMovies } from "../../services/moves-api";
-import { SearchForm } from "../SearchForm/SearchForm";
+import { SearchForm } from "../../components/SearchForm/SearchForm";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -20,6 +20,7 @@ const MoviesPage = () => {
       setMovies(data.results);
     });
   }, [currentQuery, movieName]);
+  
   function submitForm(query) {
     if (query === "") {
       return alert("Please, enter a text!");

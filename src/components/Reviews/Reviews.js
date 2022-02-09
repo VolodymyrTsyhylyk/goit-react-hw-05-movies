@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
+
+
 import { getReviews } from "../../services/moves-api";
+
 function Reviews() {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
@@ -9,7 +13,7 @@ function Reviews() {
       .then((data) => {
         setReviews(data.results);
       })
-      .catch((error) => console.warn(error));
+      .catch(er => { toast.error(er);})
   }, [movieId]);
 
   return (

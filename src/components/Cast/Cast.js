@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 import { getCast } from "../../services/moves-api";
 import {
   CastList,
@@ -7,7 +8,7 @@ import {
   Photo,
   Name,
   Character,
-} from "./MovieDedetails.styled";
+} from "../../pages/MovieDetailsPage/MovieDedetails.styled";
 function Cast() {
   let { movieId } = useParams();
   const [actors, setActors] = useState(null);
@@ -17,7 +18,7 @@ function Cast() {
       .then((data) => {
         setActors(data.cast);
       })
-      .catch((error) => console.warn(error));
+      .catch(er => { toast.error(er);})
   }, [movieId]);
 
   return (

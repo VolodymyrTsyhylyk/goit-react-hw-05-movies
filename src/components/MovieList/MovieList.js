@@ -1,25 +1,22 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { getTrendingMovies } from "../../services/moves-api";
+import { toast } from 'react-toastify';
+import { Link } from "react-router-dom";
 
 
-function HomePage() {
-  const [movies, setMovies] = useState([]);
+
+export default function MovieList() {
+      const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     getTrendingMovies()
       .then((data) => {
         setMovies(data.results);
       })
-      .catch((error) => console.warn(error));
+      .catch(er => { toast.error(er);})
   }, []);
-
-  
-  return (
-    <>
-      <h2>Trending today</h2>
-      {movies && (
-        <ul>
+    return (
+    <ul>
           {movies.map(({ id, title, name }) => (
             <li key={id}>
               <Link to={`movies/${id}`}>
@@ -28,8 +25,5 @@ function HomePage() {
             </li>
           ))}
         </ul>
-      )}
-    </>
-  );
+        )
 }
-export default HomePage;

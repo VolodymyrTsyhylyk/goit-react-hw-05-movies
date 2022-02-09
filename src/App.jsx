@@ -3,15 +3,15 @@ import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import { lazy, Suspense } from "react";
 
-const HomePage = lazy(() => import("./components/HomePage/HomePage"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 
-const MoviesPage = lazy(() => import("./components/MoviesPage/MoviesPage"));
+const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
 const MovieDetailsPage = lazy(() =>
-  import("./components/MovieDetailsPage/MovieDetailsPage")
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
 );
-const Cast = lazy(() => import("./components/MovieDetailsPage/Cast"));
+const Cast = lazy(() => import("./components/Cast/Cast"));
 
-const Reviews = lazy(() => import("./components/MovieDetailsPage/Reviews"));
+const Reviews = lazy(() => import("./components/Reviews/Reviews"));
 // const NotFound = () => {
 //   return <h1>NotFound</h1>;
 // };

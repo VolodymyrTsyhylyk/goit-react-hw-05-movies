@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useRef } from 'react';
+
+import { useNavigate, useLocation  } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
@@ -7,21 +9,27 @@ import {
   Wrapper,
   InfoWrapper,
   NavLink,
-} from "./MovieDedetails.styled";
+} from "../../pages/MovieDetailsPage/MovieDedetails.styled";
 
 
 function MovieInfo({ movie }) {
   const navigate = useNavigate();
   const userScore = Math.round((`${movie.vote_average}` * 100) / 10);
   const year = movie.release_date.substring(0, 4);
+  const location = useLocation();
+  const currentLocation = useRef(location);
 
   // const setActive = ({isActive }) => ({ color: isActive ? 'var (---color-active)' : 'white'}))
+
+  const goBack = () => { 
+    navigate(currentLocation?.current?.state?.from ?? '/');
+  }
 
   return (
     <>
       <MovieInformation>
         <Wrapper>
-          <Button type="button" onClick={() => navigate(-1)}>
+          <Button type="button" onClick={goBack}>
             Go back
           </Button>
           <img
