@@ -16,12 +16,11 @@ const Reviews = lazy(() => import("./components/Reviews/Reviews"));
 //   return <h1>NotFound</h1>;
 // };
 function App() {
-  return (
+  return ( 
     <>
       <Navigation />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          
           <Route index element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movies/:movieId" element={<MovieDetailsPage />}>

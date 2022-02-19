@@ -9,6 +9,8 @@ import {
   Name,
   Character,
 } from "../../pages/MovieDetailsPage/MovieDedetails.styled";
+
+
 function Cast() {
   let { movieId } = useParams();
   const [actors, setActors] = useState(null);

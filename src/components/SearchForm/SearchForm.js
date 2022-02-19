@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 export const SearchForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
